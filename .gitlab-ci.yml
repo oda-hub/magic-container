@@ -1,6 +1,7 @@
 stages:
 - build
 
+
 docker-build:
   # Official docker image.
   image: odahub/dind
@@ -8,6 +9,9 @@ docker-build:
   services:
     - docker:dind
   before_script:
+    - which ssh
+    - pwd
+    - lsb_release -a
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
