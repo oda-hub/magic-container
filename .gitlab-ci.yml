@@ -9,7 +9,7 @@ docker-build:
   services:
     - docker:dind
   before_script:
-    - apt add git openssh
+    - apk add git openssh
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-backend
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
