@@ -1,9 +1,6 @@
-pre_clone_script:
-- apk add openssh
-
 docker-build:
   # Official docker image.
-  image: docker:latest
+  image: odahub/dind
   stage: build
   services:
     - docker:dind
