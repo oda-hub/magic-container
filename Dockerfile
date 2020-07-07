@@ -11,4 +11,7 @@ ENV API_BASE=/staging-1-3/magic
 
 # advantage of calling gunicorn like that instead of from python is that the parameters are more explicit
 # 8 cpu is requested for the container and can be set as variable
-ENTRYPOINT gunicorn --workers 8 magic_data_server.backend_api:micro_service -b 0.0.0.0:8000 --log-level DEBUG 
+
+ENV HOME=/tmp/home
+
+ENTRYPOINT mkdir -pv $HOME; gunicorn --workers 8 magic_data_server.backend_api:micro_service -b 0.0.0.0:8000 --log-level DEBUG 
