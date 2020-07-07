@@ -1,0 +1,10 @@
+flask
+astropy
+flask-restplus
+pyyaml
+gunicorn
+bokeh
+matplotlib
+numpy
+requests
+werkzeug==0.16.0

@@ -1,0 +1,3 @@
+[submodule "magic-backend"]
+	path = magic-backend
+	url = git@gitlab.astro.unige.ch:cdci/magic/magic-backend.git
