@@ -14,4 +14,4 @@ ENV API_BASE=/staging-1-3/magic
 
 ENV HOME=/tmp/home
 
-ENTRYPOINT mkdir -pv $HOME; gunicorn --workers 8 magic_data_server.backend_api:micro_service -b 0.0.0.0:8000 --log-level DEBUG 
+ENTRYPOINT mkdir -pv $HOME; gunicorn --timeout 60 --workers 8 magic_data_server.backend_api:micro_service -b 0.0.0.0:8000 --log-level DEBUG 
