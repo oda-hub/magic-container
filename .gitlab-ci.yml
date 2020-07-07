@@ -4,14 +4,12 @@ stages:
 
 docker-build:
   # Official docker image.
-  image: odahub/dind
+  image: docker
   stage: build
   services:
     - docker:dind
   before_script:
-    - which ssh
-    - pwd
-    - lsb_release -a
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-backend
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
