@@ -1,18 +1,14 @@
-# This file is a template, and might need editing before it works on your project.
-
-
-
 variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
+#  DOCKER_DRIVER: overlay2
+#  DOCKER_TLS_CERTDIR: ""
   DOCKER_HOST: "tcp://docker:2375"
 
 docker-build-master:
   # Official docker image.
-  image: docker:stable
+  image: docker:latest
   stage: build
   services:
-    - docker:19.03.11-dind
+    - docker:dind
   before_script:
     - apk add git openssh
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-backend
