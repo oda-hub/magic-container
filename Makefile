@@ -16,7 +16,6 @@ run: build
 
 build:
 	rm -fv magic-backend/dist/*
-	( cd magic-backend/; python setup.py sdist )
 	docker build -t $(IMAGE) .
 
 push: build
