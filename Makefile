@@ -16,7 +16,7 @@ run: build
 
 build:
 	rm -fv magic-backend/dist/*
-	docker build -t $(IMAGE) .
+	docker build --pull -t $(IMAGE) .
 
 push: build
 	docker push $(IMAGE)
