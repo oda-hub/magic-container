@@ -11,11 +11,13 @@ docker-build-master:
   image: docker:stable
   stage: build
   services:
-    - docker:stable-dind
+    - docker:19.03.11-dind
   before_script:
     - apk add git openssh
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-backend
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker info || true
+    - sleep 3600
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
     - docker push "$CI_REGISTRY_IMAGE"
