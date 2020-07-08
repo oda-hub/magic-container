@@ -1,7 +1,7 @@
 # This file is a template, and might need editing before it works on your project.
 docker-build-master:
   # Official docker image.
-  image: docker:18.02
+  image: docker:stable
   stage: build
   services:
     - docker:dind
