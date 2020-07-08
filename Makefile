@@ -8,7 +8,8 @@ listen:
 run: build
 	docker rm -f $(CONTAINER) || true
 	docker run \
-                -p 8000:8000 \
+                -v $(PWD)/magic-backend/magic_data_server/config_dir/config.yml:/conf/magic_data_server/config.yml \
+                -p 8000:5001 \
                 -it \
 	        --rm \
                 --name $(CONTAINER) $(IMAGE)
