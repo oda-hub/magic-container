@@ -4,7 +4,7 @@ docker-build-master:
   image: docker:stable
   stage: build
   services:
-    - docker:dind-stable
+    - docker:stable-dind
   before_script:
     - apk add git openssh
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-backend
