@@ -1,6 +1,6 @@
 docker-build:
   # Official docker image.
-  image: docker
+  image: docker:latest
   stage: build
   services:
     - docker:dind
